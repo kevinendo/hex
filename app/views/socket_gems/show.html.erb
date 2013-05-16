@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @socket_gem.name %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @socket_gem.color %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @socket_gem.type %>
+</p>
+
+<p>
+  <b>Game text:</b>
+  <%= @socket_gem.game_text %>
+</p>
+
+
+<%= link_to 'Edit', edit_socket_gem_path(@socket_gem) %> |
+<%= link_to 'Back', socket_gems_path %>

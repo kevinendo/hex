@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<div id="card-name"><%= @card.name %></div>
+<%= image_tag(@card.image_main, :align => "right") %>
+
+<p>
+  <b>Cost:</b>
+  <%= @card.cost %>
+</p>
+
+<p>
+  <b>Threshold:</b>
+  <%= @card.threshold %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @card.color %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @card.card_type %>
+</p>
+
+<p>
+  <b>Traits:</b>
+  <%= @card.trait.name %>
+</p>
+
+<p>
+  <b>Restriction:</b>
+  <%= @card.restriction %>
+</p>
+
+<p>
+  <b>Faction:</b>
+  <%= @card.faction %>
+</p>
+
+<p>
+  <b>Game text:</b>
+  <%= @card.game_text %>
+</p>
+
+<p>
+  <b>Lore text:</b>
+  <%= @card.lore_text %>
+</p>
+
+<p>
+  <b>Attack:</b>
+  <%= @card.attack %>
+</p>
+
+<p>
+  <b>Defense:</b>
+  <%= @card.defense %>
+</p>
+
+<p>
+  <b>Set:</b>
+  <%= @card.release.name %>
+</p>
+
+<p>
+  <b>Rarity:</b>
+  <%= @card.rarity %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @card.number %>
+</p>
+
+<p>
+  <b>Pve:</b>
+  <%= @card.pve %>
+</p>
+
+<p>
+	<b>Equipment:</b><br>
+<% @card.item.each do |item|%>
+
+<%= link_to item.name, item %> - <%= item.game_text %>
+<br>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

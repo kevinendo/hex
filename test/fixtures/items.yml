@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  card_id: 1
+  item_type: 1
+  game_text: MyText
+  lore_text: MyText
+  set_card_id: 1
+  rarity: 1
+  source: MyString
+  image_main: MyString
+  rulings: MyText
+
+two:
+  name: MyString
+  card_id: 1
+  item_type: 1
+  game_text: MyText
+  lore_text: MyText
+  set_card_id: 1
+  rarity: 1
+  source: MyString
+  image_main: MyString
+  rulings: MyText

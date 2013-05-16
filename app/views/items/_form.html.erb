@@ -1,0 +1,57 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :card_id %><br />
+	<%= collection_select(:item, :card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true)%>	
+  </div>
+  <div class="field">
+    <%= f.label :item_type %><br />
+	<%= f.select :item_type, { "None" => 0, "Helmet" => 1, "Armor" => 2, "Glove" => 3, "Boots" => 4, "Weapon" => 5, "Trinket" => 6 }  %>	
+  </div>
+  <div class="field">
+    <%= f.label :game_text %><br />
+    <%= f.text_area :game_text, :size => "80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :lore_text %><br />
+    <%= f.text_area :lore_text, :size => "80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :set_card_id %><br />
+    <%= f.number_field :set_card_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rarity %><br />
+    <%= f.select :rarity, { "None" => 0, "Common" => 1, "Uncommon" => 2, "Rare" => 3, "Legendary - PvE" => 4}%>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br />
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :image_main %><br />
+    <%= f.text_field :image_main %>
+  </div>
+  <div class="field">
+    <%= f.label :rulings %><br />
+    <%= f.text_area :rulings, :size => "80x5" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

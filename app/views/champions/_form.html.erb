@@ -1,0 +1,69 @@
+<%= form_for(@champion) do |f| %>
+  <% if @champion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@champion.errors.count, "error") %> prohibited this champion from being saved:</h2>
+
+      <ul>
+      <% @champion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :power1_type %>
+	<%= f.select :power1_type, { "None" => 0, "Charge Power" => 1, "Passive Power" => 2, "Special Card" => 3, "Start of Game" => 4 }%>	
+    <%= f.label :power1_unlock %>
+    <%= f.number_field :power1_unlock %>
+  </div>
+  <div class="field">
+    <%= f.label :power1_game_text %><br />
+    <%= f.text_area :power1_game_text, :size=>"80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :power2_type %>
+	<%= f.select :power2_type, { "None" => 0, "Charge Power" => 1, "Passive Power" => 2, "Special Card" => 3, "Start of Game" => 4 }%>	
+    <%= f.label :power2_unlock %>
+    <%= f.number_field :power2_unlock %>
+  </div>
+  <div class="field">
+    <%= f.label :power2_game_text %><br />
+    <%= f.text_area :power2_game_text, :size=>"80x5" %>
+  </div>
+  <div class="field">
+  </div>
+  <div class="field">
+    <%= f.label :power3_type %>
+	<%= f.select :power3_type, { "None" => 0, "Charge Power" => 1, "Passive Power" => 2, "Special Card" => 3, "Start of Game" => 4 }%>	
+    <%= f.label :power3_unlock %>
+    <%= f.number_field :power3_unlock %>
+  </div>
+  <div class="field">
+    <%= f.label :power3_game_text %><br />
+    <%= f.text_area :power3_game_text, :size=>"80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :power4_type %>
+	<%= f.select :power4_type, { "None" => 0, "Charge Power" => 1, "Passive Power" => 2, "Special Card" => 3, "Start of Game" => 4 }%>	
+    <%= f.label :power4_unlock %>
+    <%= f.number_field :power4_unlock %>
+	
+  </div>
+  <div class="field">
+    <%= f.label :power4_game_text %><br />
+    <%= f.text_area :power4_game_text, :size=>"80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :image_main %>
+    <%= f.text_field :image_main %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

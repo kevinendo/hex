@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  power1_name: MyString
+  power1_type: 1
+  power1_game_text: MyText
+  power1_unlock: 1
+  power2_name: MyString
+  power2_type: 1
+  power2_game_text: MyText
+  power2_unlock: 1
+  power3_name: MyString
+  power3_type: 1
+  power3_game_text: MyText
+  power3_unlock: 1
+  power4_name: MyString
+  power4_type: 1
+  power4_game_text: MyText
+  power4_unlock: 1
+
+two:
+  name: MyString
+  power1_name: MyString
+  power1_type: 1
+  power1_game_text: MyText
+  power1_unlock: 1
+  power2_name: MyString
+  power2_type: 1
+  power2_game_text: MyText
+  power2_unlock: 1
+  power3_name: MyString
+  power3_type: 1
+  power3_game_text: MyText
+  power3_unlock: 1
+  power4_name: MyString
+  power4_type: 1
+  power4_game_text: MyText
+  power4_unlock: 1

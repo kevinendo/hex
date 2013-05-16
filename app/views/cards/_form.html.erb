@@ -1,0 +1,71 @@
+<%= form_for(@card) do |f| %>
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+      <% @card.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.number_field :cost %>
+    <%= f.label :threshold %>
+    <%= f.number_field :threshold %>
+  </div>
+  <div class="field">
+    <%= f.label :color %>
+	<%= f.select :color, {"Artifact" => "0", "Blood" => "1", "Wild" => "2", "Diamond" => "3", "Ruby" => "4", "Sapphire" => "5"}%>
+    <%= f.label :card_type %>
+    <%= f.select :card_type, { "Resource" => 0, "Constant" => 1, "Troop" => 2, "Basic Action" => 3, "Quick Action" => 4, "Artifact" => 5, "Artifact Troop" => 6} %>
+  </div>
+  <div class="field">
+    <%= f.label :trait_id %>
+	<%= collection_select(:card, :trait_id, Trait.order('name ASC'), :id, :name_with_initial, :prompt => true)%>
+    <%= f.label :restriction %>
+	<%= f.select :restriction, {"None" => "0", "Unique" => "1"}%>
+    <%= f.label :faction %>
+	<%= f.select :faction, {"None" => "0", "Ardent" => "1", "Underworld" => "2"}%>
+  </div>
+  <div class="field">
+    <%= f.label :game_text %><br />
+    <%= f.text_area :game_text, :size => "80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :lore_text %><br />
+    <%= f.text_area :lore_text, :size => "80x5" %>
+  </div>
+  <div class="field">
+    <%= f.label :attack %>
+    <%= f.number_field :attack %>
+    <%= f.label :defense %>
+    <%= f.number_field :defense %>
+  </div>
+  <div class="field">
+    <%= f.label :release_id %>
+    <%= collection_select(:card, :release_id, Release.order('release_date ASC'), :id, :name_with_initial, :prompt => true)%>
+    <%= f.label :rarity %>
+    <%= f.select :rarity, { "None" => 0, "Common" => 1, "Uncommon" => 2, "Rare" => 3, "Legendary - PvE" => 4, "Legendary - PvP" => 5}%>
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :pve %><br />
+	<%= f.select :pve, {"False" => "false", "True" => "true"}%>	
+  </div>
+  <div class="field">
+    <%= f.label :image_main %>
+    <%= f.text_field :image_main %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

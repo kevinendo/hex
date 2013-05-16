@@ -1,0 +1,25 @@
+<h1>Listing champions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Power 1</th>
+    <th>Power 2</th>
+    <th>Power 3</th>
+    <th>Power 4</th>
+  </tr>
+
+<% @champions.each do |champion| %>
+  <tr>
+    <td><%= link_to champion.name, champion %></td>
+    <td><b><%= champion.power1_type %></b><br><%= champion.power1_game_text %></td>
+    <td><b><%= champion.power2_type %></b><br><%= champion.power2_game_text %></td>
+    <td><b><%= champion.power3_type %></b><br><%= champion.power3_game_text %></td>
+    <td><b><%= champion.power4_type %></b><br><%= champion.power4_game_text %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Champion', new_champion_path %>

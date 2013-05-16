@@ -1,0 +1,33 @@
+<%= form_for(@socket_gem) do |f| %>
+  <% if @socket_gem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@socket_gem.errors.count, "error") %> prohibited this socket_gem from being saved:</h2>
+
+      <ul>
+      <% @socket_gem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.number_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :game_text %><br />
+    <%= f.text_area :game_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

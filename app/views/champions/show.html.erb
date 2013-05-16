@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Name:</b>
+  <%= @champion.name %>
+</p>
+
+<p>
+  <b>Power1 type:</b>
+  <%= @champion.power1_type %>
+</p>
+
+<p>
+  <b>Power1 game text:</b>
+  <%= @champion.power1_game_text %>
+</p>
+
+<p>
+  <b>Power1 unlock:</b>
+  <%= @champion.power1_unlock %>
+</p>
+
+
+<p>
+  <b>Power2 type:</b>
+  <%= @champion.power2_type %>
+</p>
+
+<p>
+  <b>Power2 game text:</b>
+  <%= @champion.power2_game_text %>
+</p>
+
+<p>
+  <b>Power2 unlock:</b>
+  <%= @champion.power2_unlock %>
+</p>
+
+
+<p>
+  <b>Power3 type:</b>
+  <%= @champion.power3_type %>
+</p>
+
+<p>
+  <b>Power3 game text:</b>
+  <%= @champion.power3_game_text %>
+</p>
+
+<p>
+  <b>Power3 unlock:</b>
+  <%= @champion.power3_unlock %>
+</p>
+
+
+<p>
+  <b>Power4 type:</b>
+  <%= @champion.power4_type %>
+</p>
+
+<p>
+  <b>Power4 game text:</b>
+  <%= @champion.power4_game_text %>
+</p>
+
+<p>
+  <b>Power4 unlock:</b>
+  <%= @champion.power4_unlock %>
+</p>
+<%= image_tag(@champion.image_main) %>
+
+
+<%= link_to 'Edit', edit_champion_path(@champion) %> |
+<%= link_to 'Back', champions_path %>

@@ -1,0 +1,10 @@
+<h1>Links</h1>
+
+<ul>
+<% @links.each do |link| %>
+ <li><%= link_to link.name, link.url %></li>
+<% end %>
+</ul>
+<br />
+
+<%= link_to 'New Link', new_link_path %>

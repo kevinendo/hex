@@ -1,0 +1,43 @@
+<h1>Listing cards</h1>
+
+<table border ="1">
+  <tr>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Threshold</th>
+    <th>Color</th>
+    <th>Type</th>
+    <th>Traits</th>
+    <th>Restriction</th>
+    <th>Faction</th>
+    <th>Attack</th>
+    <th>Defense</th>
+    <th>Set</th>
+    <th>Rarity</th>
+    <th>Number</th>
+    <th>Pve</th>
+  </tr>
+
+<% @cards.each do |card| %>
+  <tr>
+    <td><%= link_to card.name, card %></td>
+    <td><%= card.cost %></td>
+    <td><%= card.threshold %></td>
+    <td><%= card.color %></td>
+    <td><%= card.card_type %></td>
+    <td><%= card.trait.name %></td>
+    <td><%= card.restriction %></td>
+    <td><%= card.faction %></td>
+    <td><%= card.attack %></td>
+    <td><%= card.defense %></td>
+    <td><%= card.release.name %></td>
+    <td><%= card.rarity %></td>
+    <td><%= card.number %></td>
+    <td><%= card.pve %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Card', new_card_path %>

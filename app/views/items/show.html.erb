@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @item.card_id %>
+</p>
+
+<p>
+  <b>Item type:</b>
+  <%= @item.item_type %>
+</p>
+
+<p>
+  <b>Game text:</b>
+  <%= @item.game_text %>
+</p>
+
+<p>
+  <b>Lore text:</b>
+  <%= @item.lore_text %>
+</p>
+
+<p>
+  <b>Set card:</b>
+  <%= @item.set_card_id %>
+</p>
+
+<p>
+  <b>Rarity:</b>
+  <%= @item.rarity %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @item.source %>
+</p>
+
+<p>
+  <b>Image main:</b>
+  <%= @item.image_main %>
+</p>
+
+<p>
+  <b>Rulings:</b>
+  <%= @item.rulings %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
