@@ -6,7 +6,7 @@ class CardsController < ApplicationController
     #@cards = Card.all
 
     @cards = Card.order(sort_column + " " + sort_direction)
-    @cards = Card.where(:color => params[:color])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cards }
