@@ -1,9 +1,12 @@
 class CardsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    #@cards = Card.all
 
+    @cards = Card.order(sort_column + " " + sort_direction)
+    @cards = Card.where(:color => params[:color])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cards }
@@ -14,7 +17,7 @@ class CardsController < ApplicationController
   # GET /cards/1.json
   def show
     @card = Card.find(params[:id])
-
+      
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @card }
@@ -80,4 +83,15 @@ class CardsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  private
+  
+  def sort_column
+    Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end  
 end
