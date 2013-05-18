@@ -9,9 +9,10 @@
 </head>
 <body>
 <div id="header"><%= link_to 'HEXMMO.COM', '/', :class => 'headerlink' %> | <%= link_to 'CARDS', cards_path, :class => 'headerlink' %> | <%= link_to 'GEAR', items_path, :class => 'headerlink' %> | <%= link_to 'CHAMPIONS', champions_path, :class => 'headerlink' %> | <%= link_to 'GEMS', socket_gems_path, :class => 'headerlink' %> | <%= link_to 'LINKS', links_path, :class => 'headerlink'%></div>	
-<br>	
+
 <%= yield %>
 
-<div id="footer">Legal stuff.</div>	
+<div id="footer"> </div>	
+<div id="disclaimer">This website is neither owned nor operated by Cryptozoic Entertainment. We do not claim ownership over the images, videos, or articles published here. All trademarks and copyrights belong to their respective owners, and are used here under the terms of Fair Use. No copyright infringement is intended. </div>
 </body>
 </html>
