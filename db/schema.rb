@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515051218) do
+ActiveRecord::Schema.define(:version => 20130518183148) do
 
   create_table "card_types", :force => true do |t|
     t.string   "card_type_name"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20130515051218) do
   create_table "socket_gems", :force => true do |t|
     t.string   "name"
     t.integer  "color"
-    t.integer  "type"
+    t.integer  "gem_type"
     t.text     "game_text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

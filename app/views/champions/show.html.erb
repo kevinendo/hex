@@ -1,75 +1,33 @@
 <p id="notice"><%= notice %></p>
-
-
-<p>
-  <b>Name:</b>
-  <%= @champion.name %>
-</p>
-
-<p>
-  <b>Power1 type:</b>
-  <%= @champion.power1_type %>
-</p>
+<div id="champion-body">
+<div id="champion-image">	
+<%= image_tag(@champion.image_main) %>
+</div>
+<div id="champion-content">
+<h1><%= @champion.name %></h1>
 
 <p>
-  <b>Power1 game text:</b>
+  <b><%= @champion.power1_type.upcase %><br></b>
+  <b>UNLOCKED AT LEVEL <%= @champion.power1_unlock %></b><br>
   <%= @champion.power1_game_text %>
 </p>
 
 <p>
-  <b>Power1 unlock:</b>
-  <%= @champion.power1_unlock %>
-</p>
-
-
-<p>
-  <b>Power2 type:</b>
-  <%= @champion.power2_type %>
-</p>
-
-<p>
-  <b>Power2 game text:</b>
+  <b><%= @champion.power2_type.upcase %><br></b>
+  <b>UNLOCKED AT LEVEL <%= @champion.power2_unlock %></b><br>
   <%= @champion.power2_game_text %>
 </p>
-
 <p>
-  <b>Power2 unlock:</b>
-  <%= @champion.power2_unlock %>
-</p>
-
-
-<p>
-  <b>Power3 type:</b>
-  <%= @champion.power3_type %>
-</p>
-
-<p>
-  <b>Power3 game text:</b>
+  <b><%= @champion.power2_type.upcase %><br></b>
+  <b>UNLOCKED AT LEVEL <%= @champion.power2_unlock %></b><br>
   <%= @champion.power3_game_text %>
 </p>
-
 <p>
-  <b>Power3 unlock:</b>
-  <%= @champion.power3_unlock %>
-</p>
-
-
-<p>
-  <b>Power4 type:</b>
-  <%= @champion.power4_type %>
-</p>
-
-<p>
-  <b>Power4 game text:</b>
+  <b><%= @champion.power4_type.upcase %><br></b>
+  <b>UNLOCKED AT LEVEL <%= @champion.power4_unlock %></b><br>
   <%= @champion.power4_game_text %>
 </p>
-
-<p>
-  <b>Power4 unlock:</b>
-  <%= @champion.power4_unlock %>
-</p>
-<%= image_tag(@champion.image_main) %>
-
-
+</div>
+</div>
 <%= link_to 'Edit', edit_champion_path(@champion) %> |
 <%= link_to 'Back', champions_path %>

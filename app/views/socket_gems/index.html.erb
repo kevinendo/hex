@@ -5,20 +5,14 @@
     <th>Color</th>
     <th>Type</th>
     <th>Game text</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @socket_gems.each do |socket_gem| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") %>">	  
     <td><%= socket_gem.name %></td>
     <td><%= socket_gem.color %></td>
-    <td><%= socket_gem.type %></td>
+    <td><%= socket_gem.gem_type %></td>
     <td><%= socket_gem.game_text %></td>
-    <td><%= link_to 'Show', socket_gem %></td>
-    <td><%= link_to 'Edit', edit_socket_gem_path(socket_gem) %></td>
-    <td><%= link_to 'Destroy', socket_gem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -16,7 +16,8 @@ Hex::Application.routes.draw do
   resources :cards
 
   match '/links' => 'pages#show', :id => '2', :as => 'links'
-   
+
+     
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

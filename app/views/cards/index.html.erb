@@ -1,6 +1,6 @@
 <h1>CARDS</h1>
 
-<table border ="1">
+<table width="980">
   <tr>
     <th><%= sortable "name" %></th>
     <th><%= sortable "cost" %></th>
@@ -11,13 +11,12 @@
     <th><%= sortable "faction" %></th>
     <th><%= sortable "attack" %></th>
     <th><%= sortable "defense" %></th>
-    <th>Set</th>
     <th><%= sortable "rarity" %></th>
   </tr>
 
   
 <% @cards.each do |card| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") %>">	  
     <td><%= link_to card.name, card %></td>
     <td><%= card.cost %></td>
     <td><%= card.threshold %></td>
@@ -27,7 +26,6 @@
     <td><%= card.faction %></td>
     <td><%= card.attack %></td>
     <td><%= card.defense %></td>
-    <td><%= card.release.name %></td>
     <td><%= card.rarity %></td>
   </tr>
 <% end %>

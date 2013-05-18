@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :color %><br />
-    <%= f.number_field :color %>
+	<%= f.select :color, {"Artifact" => "0", "Blood" => "1", "Wild" => "2", "Diamond" => "3", "Ruby" => "4", "Sapphire" => "5"}%>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.number_field :type %>
+    <%= f.label :gem_type %><br />
+	<%= f.select :gem_type, {"Minor" => "0", "Major" => "1"}%>
   </div>
   <div class="field">
     <%= f.label :game_text %><br />

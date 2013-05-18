@@ -23,6 +23,7 @@ class CardsController < ApplicationController
       format.json { render json: @card }
     end
   end
+  
 
   # GET /cards/new
   # GET /cards/new.json

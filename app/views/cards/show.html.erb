@@ -1,92 +1,101 @@
 <p id="notice"><%= notice %></p>
-
-<%= image_tag(@card.image_main, :align => "left") %>
-
+<div id="card-body">
+	<div id="card-image">
+<%= image_tag(@card.image_main) %>
+</div>
+<div id="card-content">
 <h1><%= @card.name %></h1>
 
-<p>
-  <b>Cost:</b>
-  <%= @card.cost %>
+<table>
+<tr>
+  <td align="right"><b>Cost:</b></td>
+  <td><%= @card.cost %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Threshold:</b></td>
+  <td><%= @card.threshold %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Color:</b></td>
+  <td><%= @card.color %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Type:</b></td>
+  <td><%= @card.card_type %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Traits:</b></td>
+  <td><%= @card.trait.name %></td>
 </p>
 
-<p>
-  <b>Threshold:</b>
-  <%= @card.threshold %>
+<tr>
+  <td align="right"><b>Restriction:</b></td>
+  <td><%= @card.restriction %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Faction:</b></td>
+  <td><%= @card.faction %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Game text:</b></td>
+  <td><%= @card.game_text %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Lore text:</b></td>
+  <td><%= @card.lore_text %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Attack:</b></td>
+  <td><%= @card.attack %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Defense:</b></td>
+  <td><%= @card.defense %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Set:</b></td>
+  <td><%= @card.release.name %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Rarity:</b></td>
+  <td><%= @card.rarity %></td>
+</tr>
+
+<tr>
+  <td align="right"><b>Number:</b></td>
+  <td><%= @card.number %></td>
 </p>
 
-<p>
-  <b>Color:</b>
-  <%= @card.color %>
-</p>
+<tr>
+  <td align="right"><b>PvE:</b></td>
+  <td><%= @card.pve %></td>
+</tr>
+</table>
 
 <p>
-  <b>Type:</b>
-  <%= @card.card_type %>
-</p>
-
-<p>
-  <b>Traits:</b>
-  <%= @card.trait.name %>
-</p>
-
-<p>
-  <b>Restriction:</b>
-  <%= @card.restriction %>
-</p>
-
-<p>
-  <b>Faction:</b>
-  <%= @card.faction %>
-</p>
-
-<p>
-  <b>Game text:</b>
-  <%= @card.game_text %>
-</p>
-
-<p>
-  <b>Lore text:</b>
-  <%= @card.lore_text %>
-</p>
-
-<p>
-  <b>Attack:</b>
-  <%= @card.attack %>
-</p>
-
-<p>
-  <b>Defense:</b>
-  <%= @card.defense %>
-</p>
-
-<p>
-  <b>Set:</b>
-  <%= @card.release.name %>
-</p>
-
-<p>
-  <b>Rarity:</b>
-  <%= @card.rarity %>
-</p>
-
-<p>
-  <b>Number:</b>
-  <%= @card.number %>
-</p>
-
-<p>
-  <b>Pve:</b>
-  <%= @card.pve %>
-</p>
-
-<p>
-	<b>Equipment:</b><br>
+	<b>Equipment:</b></p>
+<table>	
 <% @card.item.each do |item|%>
-
-<%= link_to item.name, item %> - <%= item.game_text %>
-<br>
+<tr>
+<td><%= image_tag(item.image_main, :size=>"54x54") %></td>
+<td valign="top"><%= link_to item.name, item %></td>
+<td valign="top"><%= item.game_text %></td>
+</tr>
 <% end %>
-</p>
+</table>
 
+</div>
+</div>
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>

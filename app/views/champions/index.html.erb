@@ -10,7 +10,7 @@
   </tr>
 
 <% @champions.each do |champion| %>
-  <tr>
+  <tr class="<%= cycle("odd", "even") %>">	  
     <td><%= link_to champion.name, champion %></td>
     <td><b><%= champion.power1_type %></b><br><%= champion.power1_game_text %></td>
     <td><b><%= champion.power2_type %></b><br><%= champion.power2_game_text %></td>
