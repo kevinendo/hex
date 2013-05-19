@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
+<% if @card.image_main %>  
 <%= image_tag(@card.image_main, :align=> "right") %>
-
+<% end %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

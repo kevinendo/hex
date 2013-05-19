@@ -14,8 +14,8 @@
 
 <% @socket_gems.each do |socket_gem| %>
   <tr class="<%= cycle("odd", "even") %>">	  
-    <td><%= socket_gem.name %></td>
-    <td><%= socket_gem.color %></td>
+    <td><%= socket_gem.gem_name %></td>
+    <td><%= socket_gem.gem_color %></td>
     <td><%= socket_gem.gem_type %></td>
     <td><%= socket_gem.game_text %></td>
   </tr>

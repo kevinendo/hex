@@ -2,7 +2,7 @@ class SocketGemsController < ApplicationController
   # GET /socket_gems
   # GET /socket_gems.json
   def index
-    @socket_gems = SocketGem.order("name asc")
+    @socket_gems = SocketGem.order("gem_name asc")
     
     respond_to do |format|
       format.html # index.html.erb

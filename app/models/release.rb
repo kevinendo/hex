@@ -1,11 +1,11 @@
 class Release < ActiveRecord::Base
-  validates_uniqueness_of :name, :short_name
+  validates_uniqueness_of :release_name, :short_name
   
   def name_with_initial
-    "#{name}"
+    "#{release_name}"
   end
 
   has_many :card
   
-  attr_accessible :name, :short_name, :release_date, :size
+  attr_accessible :release_name, :short_name, :release_date, :size
 end

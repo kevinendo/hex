@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519202925) do
-
-  create_table "card_types", :force => true do |t|
-    t.string   "card_type_name"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130519220500) do
 
   create_table "cards", :force => true do |t|
     t.string   "name"
@@ -25,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20130519202925) do
     t.integer  "threshold"
     t.string   "color"
     t.string   "card_type"
-    t.integer  "trait_id",    :default => 0
+    t.string   "traits"
     t.integer  "restriction"
     t.integer  "faction"
     t.text     "game_text"
@@ -43,9 +37,8 @@ ActiveRecord::Schema.define(:version => 20130519202925) do
     t.string   "image_alt_2"
     t.string   "image_foil"
     t.text     "rulings"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.string   "traits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "champions", :force => true do |t|
@@ -64,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20130519202925) do
     t.integer  "power4_unlock",    :default => 20
     t.string   "image_main"
     t.string   "source"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "items", :force => true do |t|
@@ -79,69 +72,48 @@ ActiveRecord::Schema.define(:version => 20130519202925) do
     t.string   "source"
     t.string   "image_main"
     t.text     "rulings"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "links", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.text     "description"
-    t.integer  "rank"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "releases", :force => true do |t|
-    t.string   "name"
+    t.string   "release_name"
     t.string   "short_name"
     t.integer  "size"
     t.date     "release_date"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "socket_gems", :force => true do |t|
-    t.string   "name"
-    t.integer  "color"
-    t.integer  "gem_type"
+    t.string   "gem_name"
+    t.string   "gem_color"
+    t.string   "gem_type"
     t.text     "game_text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "traits", :force => true do |t|
     t.string   "trait_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "traits", ["trait_name"], :name => "index_traits_on_name", :unique => true
-
-  create_table "troop_classes", :force => true do |t|
-    t.string   "class_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "troop_races", :force => true do |t|
-    t.string   "race_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "traits", ["trait_name"], :name => "index_traits_on_trait_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.integer  "user_type"
+    t.integer  "user_type",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

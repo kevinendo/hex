@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :gem_name %><br />
+    <%= f.text_field :gem_name %>
   </div>
   <div class="field">
-    <%= f.label :color %><br />
-	<%= f.select :color, {"Artifact" => "0", "Blood" => "1", "Wild" => "2", "Diamond" => "3", "Ruby" => "4", "Sapphire" => "5"}%>
+    <%= f.label :gem_color %><br />
+	<%= f.select :gem_color, {"Artifact" => "Artifact", "Blood" => "Blood", "Wild" => "Wild", "Diamond" => "Diamond", "Ruby" => "Ruby", "Sapphire" => "Sapphire"}%>
   </div>
   <div class="field">
     <%= f.label :gem_type %><br />
-	<%= f.select :gem_type, {"Minor" => "0", "Major" => "1"}%>
+	<%= f.select :gem_type, {"Minor" => "Minor", "Major" => "Major"}%>
   </div>
   <div class="field">
     <%= f.label :game_text %><br />
