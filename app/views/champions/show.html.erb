@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
+<% if current_user %>
+<%= link_to 'Edit', edit_champion_path(@champion) %> |
+<%= link_to 'New Champion', new_champion_path %>
+<% end %>
+
+
 <div id="champion-body">
 <div id="champion-image">	
 <%= image_tag(@champion.image_main) %>
@@ -29,5 +35,3 @@
 </p>
 </div>
 </div>
-<%= link_to 'Edit', edit_champion_path(@champion) %> |
-<%= link_to 'Back', champions_path %>

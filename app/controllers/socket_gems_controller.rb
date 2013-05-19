@@ -24,17 +24,25 @@ class SocketGemsController < ApplicationController
   # GET /socket_gems/new
   # GET /socket_gems/new.json
   def new
+  if current_user  
     @socket_gem = SocketGem.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @socket_gem }
     end
+  else
+  redirect_to root_url
+end     
   end
 
   # GET /socket_gems/1/edit
   def edit
+    if current_user
     @socket_gem = SocketGem.find(params[:id])
+      else
+      redirect_to root_url
+    end      
   end
 
   # POST /socket_gems
@@ -71,13 +79,13 @@ class SocketGemsController < ApplicationController
 
   # DELETE /socket_gems/1
   # DELETE /socket_gems/1.json
-  def destroy
-    @socket_gem = SocketGem.find(params[:id])
-    @socket_gem.destroy
+#  def destroy
+#    @socket_gem = SocketGem.find(params[:id])
+#    @socket_gem.destroy
 
-    respond_to do |format|
-      format.html { redirect_to socket_gems_url }
-      format.json { head :no_content }
-    end
-  end
+#    respond_to do |format|
+#      format.html { redirect_to socket_gems_url }
+#      format.json { head :no_content }
+#    end
+#  end
 end

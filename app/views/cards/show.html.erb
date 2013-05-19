@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<% if current_user %>
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'New Card', new_card_path %>
+<% end %>
+
 <div id="card-body">
 	<div id="card-image">
 <%= image_tag(@card.image_main) %>
@@ -29,7 +34,7 @@
 
 <tr>
   <td align="right"><b>Traits:</b></td>
-  <td><%= @card.trait.name %></td>
+  <td><%= @card.trait.trait_name %></td>
 </p>
 
 <tr>
@@ -89,7 +94,7 @@
 <% @card.item.each do |item|%>
 <tr>
 <td><%= image_tag(item.image_main, :size=>"54x54") %></td>
-<td valign="top"><%= link_to item.name, item %></td>
+<td valign="top"><%= link_to item.item_name, item %></td>
 <td valign="top"><%= item.game_text %></td>
 </tr>
 <% end %>
@@ -97,5 +102,4 @@
 
 </div>
 </div>
-<%= link_to 'Edit', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>
+

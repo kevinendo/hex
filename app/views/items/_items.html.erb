@@ -1,0 +1,19 @@
+<table width="980" class="pretty">
+  <tr>
+    <th><%= sortable "item_name" %></th>
+    <th><%= sortable "name", "Card" %></th>
+    <th><%= sortable "item_type" %></th>
+    <th><%= sortable "game_text" %></th>
+    <th><%= sortable "rarity" %></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr class="<%= cycle("odd", "even") %>">	  
+    <td><%= link_to item.item_name, item %></td>
+    <td><%= item.card.name %></td>
+    <td><%= item.item_type %></td>
+    <td><%= item.game_text %></td>
+    <td><%= item.rarity %></td>
+  </tr>
+<% end %>
+</table>

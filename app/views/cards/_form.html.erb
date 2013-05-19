@@ -23,13 +23,13 @@
   </div>
   <div class="field">
     <%= f.label :color %>
-	<%= f.select :color, {"Artifact" => "0", "Blood" => "1", "Wild" => "2", "Diamond" => "3", "Ruby" => "4", "Sapphire" => "5"}%>
+	<%= f.select :color, {"Artifact" => "Artifact", "Blood" => "Blood", "Wild" => "Wild", "Diamond" => "Diamond", "Ruby" => "Ruby", "Sapphire" => "Sapphire"}%>
     <%= f.label :card_type %>
-    <%= f.select :card_type, { "Resource" => 0, "Constant" => 1, "Troop" => 2, "Basic Action" => 3, "Quick Action" => 4, "Artifact" => 5, "Artifact Troop" => 6} %>
+    <%= f.select :card_type, { "Resource" => "Resource", "Constant" => "Constant", "Troop" => "Troop", "Basic Action" => "Basic Action", "Quick Action" => "Quick Action", "Artifact" => "Artifact", "Artifact Troop" => "Artifact Troop"} %>
   </div>
   <div class="field">
     <%= f.label :trait_id %>
-	<%= collection_select(:card, :trait_id, Trait.order('name ASC'), :id, :name_with_initial, :prompt => true)%>
+	<%= collection_select(:card, :trait_id, Trait.order('trait_name ASC'), :id, :name_with_initial, :prompt => true)%>
     <%= f.label :restriction %>
 	<%= f.select :restriction, {"None" => "0", "Unique" => "1"}%>
     <%= f.label :faction %>

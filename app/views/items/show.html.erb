@@ -1,55 +1,37 @@
 <p id="notice"><%= notice %></p>
+<% if current_user %>
+<%= link_to 'Edit', edit_item_path(@item) %>
+<%= link_to 'New Item', new_item_path %>
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @item.name %>
-</p>
-
-<p>
-  <b>Card:</b>
-  <%= @item.card_id %>
-</p>
-
-<p>
-  <b>Item type:</b>
-  <%= @item.item_type %>
-</p>
-
-<p>
-  <b>Game text:</b>
-  <%= @item.game_text %>
-</p>
-
-<p>
-  <b>Lore text:</b>
-  <%= @item.lore_text %>
-</p>
-
-<p>
-  <b>Set card:</b>
-  <%= @item.set_card_id %>
-</p>
-
-<p>
-  <b>Rarity:</b>
-  <%= @item.rarity %>
-</p>
-
-<p>
-  <b>Source:</b>
-  <%= @item.source %>
-</p>
-
-<p>
-  <b>Image main:</b>
-  <%= @item.image_main %>
-</p>
-
-<p>
-  <b>Rulings:</b>
-  <%= @item.rulings %>
-</p>
+<div id="item-body">
+	<div id="item-image">
+<%= image_tag(@item.card.image_main) %>
+</div>
+<div id="item-content">
+<%= image_tag(@item.image_main, :align => "right") %>
+<h1><%= @item.item_name %></h1>
 
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<table>
+<tr>
+  <td align="right"><b>Type:</b></td>
+  <td><%= @item.item_type %></td>
+</tr>
+<tr>
+  <td align="right"><b>Game Text:</b></td>
+  <td><%= @item.game_text %></td>
+</tr>
+<tr>
+  <td align="right"><b>Lore Text:</b></td>
+  <td><%= @item.lore_text %></td>
+</tr>
+<tr>
+  <td align="right"><b>Rarity:</b></td>
+  <td><%= @item.rarity %></td>
+</tr>
+</table>
+
+</div>
+</div>
+

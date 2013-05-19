@@ -1,16 +1,23 @@
+<% if current_user %>
+<%= link_to 'New Card', new_card_path %>
+<% end %>
+
+
 <h1>CARDS</h1>
 
 <%= form_tag cards_path, :method => 'get', :id => "cards_search" do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-
-    <%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :search, params[:search], :size => 40 %>
+	<%= select_tag :color, options_for_select([["Color", "0"], "Artifact", "Blood", "Wild", "Diamond", "Ruby", "Sapphire"], :selected => params[:color])%>
+    <%= select_tag :card_type, options_for_select([["Card Type", "0"], "Resource", "Troop", "Constant", "Basic Action", "Quick Action", "Artifact", "Artifact Troop"], :selected => params[:card_type])%>
+	<%= submit_tag "Search", :name => nil %>
+	<%= link_to 'reset', cards_path %>
+	
   </p>
   <div id="cards"><%= render 'cards' %></div>
 <% end %>
-
-
-
 <br />
+  <%= javascript_include_tag "card" %>
 
-<%= link_to 'New Card', new_card_path %>
+
+

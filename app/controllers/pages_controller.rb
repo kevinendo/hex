@@ -2,12 +2,16 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
+    if current_user    
     @pages = Page.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pages }
     end
+  else
+  redirect_to root_url
+end       
   end
 
   # GET /pages/1
@@ -24,17 +28,25 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.json
   def new
+          if current_user      
     @page = Page.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @page }
     end
+  else
+  redirect_to root_url
+end  
   end
 
   # GET /pages/1/edit
   def edit
+        if current_user    
     @page = Page.find(params[:id])
+  else
+  redirect_to root_url
+end       
   end
 
   # POST /pages
@@ -71,13 +83,13 @@ class PagesController < ApplicationController
 
   # DELETE /pages/1
   # DELETE /pages/1.json
-  def destroy
-    @page = Page.find(params[:id])
-    @page.destroy
+#  def destroy
+#    @page = Page.find(params[:id])
+#    @page.destroy
 
-    respond_to do |format|
-      format.html { redirect_to pages_url }
-      format.json { head :no_content }
-    end
-  end
+#    respond_to do |format|
+#      format.html { redirect_to pages_url }
+#      format.json { head :no_content }
+#    end
+#  end
 end

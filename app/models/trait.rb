@@ -1,11 +1,11 @@
 class Trait < ActiveRecord::Base
   
-  validates_uniqueness_of :name
+  validates_uniqueness_of :trait_name
   
   def name_with_initial
-    "#{name}"
+    "#{trait_name}"
   end
 
   has_many :card
-  attr_accessible :name
+  attr_accessible :trait_name
 end

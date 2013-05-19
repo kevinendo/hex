@@ -1,13 +1,18 @@
 class CardsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
+
   # GET /cards
   # GET /cards.json
   def index
-    #@cards = Card.all
-    #@cards = Card.order(sort_column + " " + sort_direction)
-    @cards = Card.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
-
+      @cards = Card.joins(:trait).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
+      
+      if params[:color] && params[:color] != "0"
+        @cards = @cards.where("color = ?", params[:color])
+      end
+      if params[:card_type] && params[:card_type] != "0"
+        @cards = @cards.where("card_type = ?", params[:card_type])
+      end      
    # respond_to do |format|
     #  format.html # index.html.erb
     #  format.json { render json: @cards }
@@ -29,24 +34,33 @@ class CardsController < ApplicationController
   # GET /cards/new
   # GET /cards/new.json
   def new
-    @card = Card.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @card }
-    end
+    if current_user
+      @card = Card.new
+      
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @card }
+      end
+    else
+      redirect_to root_url
+    end   
   end
 
   # GET /cards/1/edit
   def edit
-    @card = Card.find(params[:id])
+    if current_user
+      @card = Card.find(params[:id])
+    else
+      redirect_to root_url
+    end
+    
   end
 
   # POST /cards
   # POST /cards.json
   def create
     @card = Card.new(params[:card])
-
+    
     respond_to do |format|
       if @card.save
         format.html { redirect_to @card, notice: 'Card was successfully created.' }
@@ -76,20 +90,24 @@ class CardsController < ApplicationController
 
   # DELETE /cards/1
   # DELETE /cards/1.json
-  def destroy
-    @card = Card.find(params[:id])
-    @card.destroy
+#  def destroy
+#    @card = Card.find(params[:id])
+#    @card.destroy
 
-    respond_to do |format|
-      format.html { redirect_to cards_url }
-      format.json { head :no_content }
-    end
-  end
+#    respond_to do |format|
+#      format.html { redirect_to cards_url }
+#      format.json { head :no_content }
+#    end
+#  end
   
 
     
   def sort_column
-   Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    if params[:sort]=='trait_name'
+      "trait_name"
+    else
+      Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
   end
   
   def sort_direction

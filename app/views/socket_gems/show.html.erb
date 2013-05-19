@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<% if current_user %>
+<%= link_to 'Edit', edit_socket_gem_path(@socket_gem) %> |
+<%= link_to 'New Socket gem', new_socket_gem_path %>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -20,6 +24,3 @@
   <%= @socket_gem.game_text %>
 </p>
 
-
-<%= link_to 'Edit', edit_socket_gem_path(@socket_gem) %> |
-<%= link_to 'Back', socket_gems_path %>

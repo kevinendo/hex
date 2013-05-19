@@ -10,7 +10,7 @@
 
 <% @traits.each do |trait| %>
   <tr>
-    <td><%= trait.name %></td>
+    <td><%= trait.trait_name %></td>
     <td><%= link_to 'Show', trait %></td>
     <td><%= link_to 'Edit', edit_trait_path(trait) %></td>
     <td><%= link_to 'Destroy', trait, method: :delete, data: { confirm: 'Are you sure?' } %></td>

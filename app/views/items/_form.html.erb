@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :item_name %><br />
+    <%= f.text_field :item_name %>
   </div>
   <div class="field">
     <%= f.label :card_id %><br />
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :item_type %><br />
-	<%= f.select :item_type, { "None" => 0, "Helmet" => 1, "Armor" => 2, "Glove" => 3, "Boots" => 4, "Weapon" => 5, "Trinket" => 6 }  %>	
+	<%= f.select :item_type, { "None" => "None", "Helmet" => "Helmet", "Armor" => "Armor", "Gloves" => "Gloves", "Boots" => "Boots", "Weapon" => "Weapon", "Trinket" => "Trinket" }  %>	
   </div>
   <div class="field">
     <%= f.label :game_text %><br />

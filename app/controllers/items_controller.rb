@@ -1,9 +1,16 @@
 class ItemsController < ApplicationController
+  helper_method :sort_column, :sort_direction
+    
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    #@items = Item.all
+    @items = Item.joins(:card).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
 
+    if params[:item_type] && params[:item_type] != "0"
+      @items = @items.where("item_type = ?", params[:item_type])
+    end
+        
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
@@ -24,17 +31,26 @@ class ItemsController < ApplicationController
   # GET /items/new
   # GET /items/new.json
   def new
+    if current_user
     @item = Item.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @item }
     end
+  else
+    redirect_to root_url
+  end   
+      
   end
 
   # GET /items/1/edit
   def edit
+ if current_user
     @item = Item.find(params[:id])
+  else
+    redirect_to root_url
+  end  
   end
 
   # POST /items
@@ -71,13 +87,25 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   # DELETE /items/1.json
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
+#  def destroy
+#    @item = Item.find(params[:id])
+#    @item.destroy
 
-    respond_to do |format|
-      format.html { redirect_to items_url }
-      format.json { head :no_content }
+#    respond_to do |format|
+#      format.html { redirect_to items_url }
+#      format.json { head :no_content }
+#    end
+#  end
+  
+  def sort_column
+    if params[:sort]=='name'
+      "name"
+    else
+      Item.column_names.include?(params[:sort]) ? params[:sort] : "item_name"
     end
   end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end    
 end

@@ -1,5 +1,10 @@
+<% if current_user %>
+<%= link_to 'New Socket gem', new_socket_gem_path %>
+<% end %>
+
+
 <h1>GEMS</h1>
-<table>
+<table width="980" class="pretty">
   <tr>
     <th>Name</th>
     <th>Color</th>
@@ -19,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Socket gem', new_socket_gem_path %>
+

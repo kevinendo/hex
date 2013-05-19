@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518183148) do
+ActiveRecord::Schema.define(:version => 20130519161236) do
 
   create_table "card_types", :force => true do |t|
     t.string   "card_type_name"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20130518183148) do
     t.string   "name"
     t.integer  "cost"
     t.integer  "threshold"
-    t.integer  "color"
-    t.integer  "card_type"
+    t.string   "color"
+    t.string   "card_type"
     t.integer  "trait_id",    :default => 0
     t.integer  "restriction"
     t.integer  "faction"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(:version => 20130518183148) do
   end
 
   create_table "items", :force => true do |t|
-    t.string   "name"
+    t.string   "item_name"
     t.integer  "card_id"
-    t.integer  "item_type"
+    t.string   "item_type"
     t.text     "game_text"
     t.text     "lore_text"
     t.integer  "set_card_id"
@@ -117,12 +117,12 @@ ActiveRecord::Schema.define(:version => 20130518183148) do
   end
 
   create_table "traits", :force => true do |t|
-    t.string   "name"
+    t.string   "trait_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "traits", ["name"], :name => "index_traits_on_name", :unique => true
+  add_index "traits", ["trait_name"], :name => "index_traits_on_name", :unique => true
 
   create_table "troop_classes", :force => true do |t|
     t.string   "class_name"
@@ -134,6 +134,15 @@ ActiveRecord::Schema.define(:version => 20130518183148) do
     t.string   "race_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.integer  "user_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

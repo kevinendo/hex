@@ -1,21 +1,24 @@
 Hex::Application.routes.draw do
   
+  get "sessions/new"
+
+  get "users/new"
+
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"  
+  get "sign_up" => "users#new", :as => "sign_up"
+  
   resources :socket_gems
-
   resources :champions
-
   resources :items
-
   resources :gear
-
   resources :pages
-
   resources :releases
-
   resources :traits
-
   resources :cards
-
+  resources :users
+  resources :sessions
+  
   match '/links' => 'pages#show', :id => '2', :as => 'links'
 
      

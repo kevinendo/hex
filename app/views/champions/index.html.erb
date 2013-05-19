@@ -1,6 +1,11 @@
+<% if current_user %>
+<%= link_to 'New Champion', new_champion_path %>
+<% end %>
+
+
 <h1>CHAMPIONS</h1>
 
-<table>
+<table width="980" class="pretty">
   <tr>
     <th>Name</th>
     <th>Power 1</th>
@@ -22,4 +27,4 @@
 
 <br />
 
-<%= link_to 'New Champion', new_champion_path %>
+

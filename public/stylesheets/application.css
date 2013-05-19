@@ -11,7 +11,30 @@
  *= require_self
  *= require_tree .
  */
-
+a
+{
+	color: black;
+}
+p
+{
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+}
+td
+{
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+th
+{
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color: black;
+}
+th a
+{
+	text-decoration: none;
+}
 .odd
 {
 	background: #e0cc8e;
@@ -22,7 +45,7 @@
 }
 
 .pretty td, .pretty th {
-  padding: 4px 10px;
+  padding: 2px 5px;
   border: solid 1px #AAA;
 }
 
@@ -99,6 +122,49 @@ a.headerlink:hover
 	width: 380px;
 }
 
+
+#card-body 
+{
+	margin-top: 3px;
+	margin-bottom: 3px;	
+	padding:10px;
+	width: 960px;
+	height: 700px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;	
+}
+#card-image
+{
+	float: left;
+	width: 36%;
+}
+#card-content
+{
+	float: right;
+	width: 64%;
+}
+#item-body 
+{
+	margin-top: 3px;
+	margin-bottom: 3px;	
+	padding:10px;
+	width: 960px;
+	height: 460px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;	
+}
+#item-image
+{
+	float: left;
+	width: 36%;
+}
+#item-content
+{
+	float: right;
+	width: 64%;
+}
 #champion-body 
 {
 	margin-top: 3px;
