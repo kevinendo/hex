@@ -1,4 +1,5 @@
 Hex::Application.routes.draw do
+  
   resources :socket_gems
 
   resources :champions

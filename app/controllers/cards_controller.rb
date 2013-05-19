@@ -1,16 +1,17 @@
 class CardsController < ApplicationController
   helper_method :sort_column, :sort_direction
+
   # GET /cards
   # GET /cards.json
   def index
     #@cards = Card.all
+    #@cards = Card.order(sort_column + " " + sort_direction)
+    @cards = Card.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
-    @cards = Card.order(sort_column + " " + sort_direction)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @cards }
-    end
+   # respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @cards }
+    #end
   end
 
   # GET /cards/1
@@ -85,11 +86,10 @@ class CardsController < ApplicationController
     end
   end
   
-  
-  private
-  
+
+    
   def sort_column
-    Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
+   Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
   
   def sort_direction

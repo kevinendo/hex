@@ -5,6 +5,7 @@ class Card < ActiveRecord::Base
   RARITY = { "None" => 0, "Common" => 1, "Uncommon" => 2, "Rare" => 3, "Legendary - PvE" => 4, "Legendary - PvP" => 5}
   CARD_TYPE = { "Resource" => 0, "Constant" => 1, "Troop" => 2, "Basic Action" => 3, "Quick Action" => 4, "Artifact" => 5, "Artifact Troop" => 6}
 
+
   def color
     COLOR.key(read_attribute(:color))
   end
@@ -28,7 +29,15 @@ class Card < ActiveRecord::Base
   def name_with_initial
     "#{name}"
   end
-    
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+      
   has_many :item
   belongs_to :trait  
   belongs_to :release

@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+.odd
+{
+	background: #e0cc8e;
+}
+.even
+{
+	background: #CDCDCD;
+}
+
+.pretty td, .pretty th {
+  padding: 4px 10px;
+  border: solid 1px #AAA;
+}
+
+.pretty .price {
+  text-align: right;
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+.pretty th .desc {
+  background-image: url(/images/down_arrow.gif);
+}
+
+h1 {
+	font-family: 'Archivo Black', sans-serif;
+	font-size: 16px;
+}
+
+a.headerlink:link
+{
+	text-decoration: none;
+	color: #FFB11F;
+	
+}
+a.headerlink:active
+{
+	text-decoration: none;
+	color: #FFB11F;
+	
+}
+a.headerlink:visited
+{
+	text-decoration: none;
+	color: #FFB11F;
+}
+a.headerlink:hover
+{
+	text-decoration: none;
+	color: #FFB11F;
+}
+#header
+{
+	font-family: 'Archivo Black', sans-serif;
+	font-size: 18px;
+	text-align: top;
+	color: #DFB843;
+	background-color: black;
+	border-style: solid;
+	border-width: 5px;
+	border-color: black;
+	width:970px;
+}
+
+#page-body 
+{
+	background-image:url('uruunaz-background.jpg');
+	background-repeat:no-repeat;
+	margin-top: 3px;
+	margin-bottom: 3px;	
+	padding:10px;
+	width: 960px;
+	height: 710px;
+}
+#page-content
+{
+	width: 380px;
+}
+
+#champion-body 
+{
+	margin-top: 3px;
+	margin-bottom: 3px;	
+	padding:10px;
+	width: 960px;
+	height: 420px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;	
+}
+#champion-image
+{
+	float: left;
+	width: 28%;
+}
+#champion-content
+{
+	float: right;
+	width: 72%;
+}
+
+#footer
+{
+	color: white;
+	background-color: black;
+	border-style: solid;
+	border-width: 5px;
+	border-color: black;
+	height: 10px;
+	width:970px;	
+}
+	
+#disclaimer
+{
+	margin-top: 10px;
+	font-size: 9px;
+	font-color: black;
+	line-height: 110%;
+	width: 980px;
+}
