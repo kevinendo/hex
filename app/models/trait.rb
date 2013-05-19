@@ -6,6 +6,5 @@ class Trait < ActiveRecord::Base
     "#{trait_name}"
   end
 
-  has_many :card
   attr_accessible :trait_name
 end

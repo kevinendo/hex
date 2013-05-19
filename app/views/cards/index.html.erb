@@ -12,7 +12,6 @@
     <%= select_tag :card_type, options_for_select([["Card Type", "0"], "Resource", "Troop", "Constant", "Basic Action", "Quick Action", "Artifact", "Artifact Troop"], :selected => params[:card_type])%>
 	<%= submit_tag "Search", :name => nil %>
 	<%= link_to 'reset', cards_path %>
-	
   </p>
   <div id="cards"><%= render 'cards' %></div>
 <% end %>

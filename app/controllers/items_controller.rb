@@ -16,6 +16,14 @@ class ItemsController < ApplicationController
       format.json { render json: @items }
     end
   end
+  
+  def export
+
+    @items = Item.all
+   
+    render :layout => false
+    
+  end  
 
   # GET /items/1
   # GET /items/1.json

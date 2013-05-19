@@ -20,8 +20,9 @@ Hex::Application.routes.draw do
   resources :sessions
   
   match '/links' => 'pages#show', :id => '2', :as => 'links'
-
-     
+  match '/cardexport' => 'cards#export'
+  match '/itemexport' => 'items#export'
+       
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

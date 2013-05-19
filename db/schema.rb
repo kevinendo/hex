@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519161236) do
+ActiveRecord::Schema.define(:version => 20130519202925) do
 
   create_table "card_types", :force => true do |t|
     t.string   "card_type_name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130519161236) do
     t.text     "rulings"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.string   "traits"
   end
 
   create_table "champions", :force => true do |t|

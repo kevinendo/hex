@@ -2,7 +2,7 @@ class ChampionsController < ApplicationController
   # GET /champions
   # GET /champions.json
   def index
-    @champions = Champion.all
+    @champions = Champion.order("name asc")
 
     respond_to do |format|
       format.html # index.html.erb

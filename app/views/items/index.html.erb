@@ -2,11 +2,12 @@
 <%= link_to 'New Item', new_item_path %>
 <% end %>
 <h1>GEAR</h1>
-<%= form_tag items_path, :method => 'get', :id => "items_search" do %>
+<p><%= form_tag items_path, :method => 'get', :id => "items_search" do %>
 <%= text_field_tag :search, params[:search], :size => 40 %>
 <%= select_tag :item_type, options_for_select([["Item Type", "0"], "Helmet", "Armor", "Gloves", "Boots", "Weapon", "Trinket"], :selected => params[:item_type])%>
 <%= submit_tag "Search", :name => nil %>
 <%= link_to 'reset', items_path %>
+</p>
 
 <div id="items"><%= render 'items' %></div>
 

@@ -2,8 +2,8 @@ class SocketGemsController < ApplicationController
   # GET /socket_gems
   # GET /socket_gems.json
   def index
-    @socket_gems = SocketGem.all
-
+    @socket_gems = SocketGem.order("name asc")
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @socket_gems }

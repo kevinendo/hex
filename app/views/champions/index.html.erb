@@ -7,20 +7,20 @@
 
 <table width="980" class="pretty">
   <tr>
-    <th>Name</th>
-    <th>Power 1</th>
-    <th>Power 2</th>
-    <th>Power 3</th>
-    <th>Power 4</th>
+    <th width="20%">Name</th>
+    <th width="20%">Power 1</th>
+    <th width="20%">Power 2</th>
+    <th width="20%">Power 3</th>
+    <th width="20%">Power 4</th>
   </tr>
 
 <% @champions.each do |champion| %>
   <tr class="<%= cycle("odd", "even") %>">	  
-    <td><%= link_to champion.name, champion %></td>
-    <td><b><%= champion.power1_type %></b><br><%= champion.power1_game_text %></td>
-    <td><b><%= champion.power2_type %></b><br><%= champion.power2_game_text %></td>
-    <td><b><%= champion.power3_type %></b><br><%= champion.power3_game_text %></td>
-    <td><b><%= champion.power4_type %></b><br><%= champion.power4_game_text %></td>
+    <td valign="top"><%= link_to champion.name, champion %></td>
+    <td valign="top"><b><%= champion.power1_type %></b><br><%= champion.power1_game_text %></td>
+    <td valign="top"><b><%= champion.power2_type %></b><br><%= champion.power2_game_text %></td>
+    <td valign="top"><b><%= champion.power3_type %></b><br><%= champion.power3_game_text %></td>
+    <td valign="top"><b><%= champion.power4_type %></b><br><%= champion.power4_game_text %></td>
   </tr>
 <% end %>
 </table>

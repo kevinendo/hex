@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-      @cards = Card.joins(:trait).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
+      @cards = Card.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
       
       if params[:color] && params[:color] != "0"
         @cards = @cards.where("color = ?", params[:color])
@@ -13,11 +13,17 @@ class CardsController < ApplicationController
       if params[:card_type] && params[:card_type] != "0"
         @cards = @cards.where("card_type = ?", params[:card_type])
       end      
-   # respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.json { render json: @cards }
-    #end
+
   end
+  
+  def export
+
+    @cards = Card.all
+   
+    render :layout => false
+    
+  end
+  
 
   # GET /cards/1
   # GET /cards/1.json
@@ -103,11 +109,7 @@ class CardsController < ApplicationController
 
     
   def sort_column
-    if params[:sort]=='trait_name'
-      "trait_name"
-    else
-      Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
+    Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
   
   def sort_direction
