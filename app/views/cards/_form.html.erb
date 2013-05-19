@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+<%= image_tag(@card.image_main, :align=> "right") %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -25,7 +26,7 @@
     <%= f.label :color %>
 	<%= f.select :color, {"Artifact" => "Artifact", "Blood" => "Blood", "Wild" => "Wild", "Diamond" => "Diamond", "Ruby" => "Ruby", "Sapphire" => "Sapphire"}%>
     <%= f.label :card_type %>
-    <%= f.select :card_type, { "Resource" => "Resource", "Constant" => "Constant", "Troop" => "Troop", "Basic Action" => "Basic Action", "Quick Action" => "Quick Action", "Artifact" => "Artifact", "Artifact Troop" => "Artifact Troop"} %>
+    <%= f.select :card_type, { "Resource" => "Resource", "Constant" => "Constant", "Troop" => "Troop", "Basic Action" => "Basic Action", "Quick Action" => "Quick Action", "Artifact" => "Artifact", "Troop, Artifact" => "Troop, Artifact"} %>
   </div>
   <div class="field">
     <%= f.label :trait_id %>

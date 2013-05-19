@@ -1,3 +1,7 @@
+<% if current_user %>
+<%= link_to 'New Trait', new_trait_path %>
+<% end %>
+
 <h1>Listing traits</h1>
 
 <table>
@@ -20,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Trait', new_trait_path %>
+
