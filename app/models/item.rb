@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   ITEM_TYPE = { "None" => 0, "Helmet" => 1, "Armor" => 2, "Glove" => 3, "Boots" => 4, "Weapon" => 5, "Trinket" => 6 }  
-  RARITY = { "None" => 0, "Common" => 1, "Uncommon" => 2, "Rare" => 3, "Legendary - PvE" => 4, "Legendary - PvP" => 5}
+  RARITY = { "None" => 0, "Common" => 1, "Uncommon" => 2, "Rare" => 3, "Legendary" => 4}
   
  # def item_type
 #    ITEM_TYPE.key(read_attribute(:item_type))
