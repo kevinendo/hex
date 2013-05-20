@@ -40,5 +40,5 @@ class Card < ActiveRecord::Base
   
   has_many :item
   belongs_to :release
-  attr_accessible :traits, :attack, :color, :cost, :defense, :faction, :game_text, :lore_text, :name, :number, :pve, :rarity, :restriction, :release_id, :threshold, :card_type, :image_main
+  attr_accessible :related_card_id, :traits, :attack, :color, :cost, :defense, :faction, :game_text, :lore_text, :name, :number, :pve, :rarity, :restriction, :release_id, :threshold, :card_type, :image_main
 end

@@ -86,6 +86,12 @@
   <td align="right"><b>PvE:</b></td>
   <td><%= @card.pve %></td>
 </tr>
+<% if @related %>
+<tr>
+  <td align="right"><b>Related Card:</b></td>
+  <td><%= link_to @related.name, :controller => "cards", :action => "show", :id => @related.id %></td>
+</tr>
+<% end %>
 </table>
 
 <p>

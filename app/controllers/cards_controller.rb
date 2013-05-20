@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   # GET /cards.json
   def index
       @cards = Card.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 50, :page => params[:page])
-      
+
       if params[:color] && params[:color] != "0"
         @cards = @cards.where("color = ?", params[:color])
       end
@@ -29,7 +29,13 @@ class CardsController < ApplicationController
   # GET /cards/1.json
   def show
     @card = Card.find(params[:id])
-      
+    
+    if @card.related_card_id
+      @related = Card.find(@card.related_card_id)  
+    else
+      @related = nil
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @card }

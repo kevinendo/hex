@@ -64,6 +64,10 @@
 	<%= f.select :pve, {"False" => "false", "True" => "true"}%>	
   </div>
   <div class="field">
+    <%= f.label :related_card_id %><br />
+	<%= collection_select(:card, :related_card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true)%>	
+  </div>  
+  <div class="field">
     <%= f.label :image_main %>
     <%= f.text_field :image_main %>
   </div>
