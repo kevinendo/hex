@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :card_id %><br />
-	<%= collection_select(:item, :card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true)%>	
+	<%= collection_select(:item, :card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true, :include_blank => true)%>	
   </div>
   <div class="field">
     <%= f.label :item_type %><br />
@@ -33,8 +33,9 @@
   </div>
   <div class="field">
     <%= f.label :set_card_id %><br />
-    <%= f.number_field :set_card_id %>
+	<%= collection_select(:item, :set_card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true, :include_blank => true)%>	
   </div>
+
   <div class="field">
     <%= f.label :rarity %><br />
     <%= f.select :rarity, { "None" => 0, "Common" => 1, "Uncommon" => 2, "Rare" => 3, "Legendary - PvE" => 4}%>

@@ -1,3 +1,5 @@
+<%= will_paginate @items %>
+
 <table width="980" class="pretty">
   <tr>
     <th><%= sortable "item_name", "Name" %></th>
@@ -17,3 +19,5 @@
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @items %>

@@ -15,6 +15,12 @@ a
 {
 	color: black;
 }
+li
+{
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+}
+
 p
 {
 	font-family: Arial, sans-serif;
@@ -106,6 +112,14 @@ a.headerlink:hover
 	border-color: black;
 	width:970px;
 }
+
+.pagination
+{
+	font-family: Arial, sans-serif;
+	color: black;
+}
+
+
 
 #page-body 
 {

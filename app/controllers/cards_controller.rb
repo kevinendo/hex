@@ -35,7 +35,23 @@ class CardsController < ApplicationController
     else
       @related = nil
     end
-    
+    if @card.related_card2_id
+      @related2 = Card.find(@card.related_card2_id)  
+    else
+      @related2 = nil
+    end
+    if @card.related_card3_id
+      @related3 = Card.find(@card.related_card3_id)  
+    else
+      @related3 = nil
+    end
+    if @card.related_card4_id
+      @related4 = Card.find(@card.related_card4_id)  
+    else
+      @related4 = nil
+    end
+
+        
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @card }

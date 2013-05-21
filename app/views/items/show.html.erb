@@ -34,7 +34,12 @@
   <td align="right"><b>Rarity:</b></td>
   <td><%= @item.rarity %></td>
 </tr>
-
+<% if @setcard %>
+<tr>
+  <td align="right"><b>Set Card:</b></td>
+  <td><%= link_to @setcard.name, :controller => "cards", :action => "show", :id => @setcard.id %></td>
+</tr>
+<% end %>
 </table>
 
 </div>

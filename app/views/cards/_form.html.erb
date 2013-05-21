@@ -19,13 +19,13 @@
   </div>
   <div class="field">
     <%= f.label :cost %>
-    <%= f.number_field :cost %>
+    <%= f.text_field :cost %>
     <%= f.label :threshold %>
     <%= f.number_field :threshold %>
   </div>
   <div class="field">
     <%= f.label :color %>
-	<%= f.select :color, {"Artifact" => "Artifact", "Blood" => "Blood", "Wild" => "Wild", "Diamond" => "Diamond", "Ruby" => "Ruby", "Sapphire" => "Sapphire"}%>
+	<%= f.select :color, {"Colorless" => "Colorless", "Blood" => "Blood", "Wild" => "Wild", "Diamond" => "Diamond", "Ruby" => "Ruby", "Sapphire" => "Sapphire"}%>
     <%= f.label :card_type %>
     <%= f.select :card_type, { "Resource" => "Resource", "Constant" => "Constant", "Troop" => "Troop", "Basic Action" => "Basic Action", "Quick Action" => "Quick Action", "Artifact" => "Artifact", "Troop, Artifact" => "Troop, Artifact"} %>
   </div>
@@ -65,13 +65,36 @@
   </div>
   <div class="field">
     <%= f.label :related_card_id %><br />
-	<%= collection_select(:card, :related_card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true)%>	
+	<%= collection_select(:card, :related_card_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true, :include_blank => true)%>	
   </div>  
+  <div class="field">
+    <%= f.label :related_card2_id %><br />
+	<%= collection_select(:card, :related_card2_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true, :include_blank => true)%>	
+  </div>  
+  <div class="field">
+    <%= f.label :related_card3_id %><br />
+	<%= collection_select(:card, :related_card3_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true, :include_blank => true)%>	
+  </div>  
+  <div class="field">
+    <%= f.label :related_card4_id %><br />
+	<%= collection_select(:card, :related_card4_id, Card.order('name ASC'), :id, :name_with_initial, :prompt => true, :include_blank => true)%>	
+  </div>  
+        
   <div class="field">
     <%= f.label :image_main %>
     <%= f.text_field :image_main %>
+  </div>
+  <div class="field">
+    <%= f.label :image_back %>
+    <%= f.text_field :image_back %>
+  </div>
+  <div class="field">
+    <%= f.label :image_alt_1 %>
+    <%= f.text_field :image_alt_1 %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

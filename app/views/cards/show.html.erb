@@ -7,7 +7,7 @@
 <div id="card-body">
 	<div id="card-image">
 <%= image_tag(@card.image_main) %>
-</div>
+	</div>
 <div id="card-content">
 <h1><%= @card.name %></h1>
 
@@ -51,12 +51,12 @@
   <td align="right"><b>Game text:</b></td>
   <td><%= @card.game_text %></td>
 </tr>
-
+<% if @card.lore_text != "" %>
 <tr>
   <td align="right"><b>Lore text:</b></td>
   <td><%= @card.lore_text %></td>
 </tr>
-
+<% end %>
 <tr>
   <td align="right"><b>Attack:</b></td>
   <td><%= @card.attack %></td>
@@ -69,7 +69,7 @@
 
 <tr>
   <td align="right"><b>Set:</b></td>
-  <td><%= @card.release.short_name %></td>
+  <td><%= @card.release.release_name %></td>
 </tr>
 
 <tr>
@@ -92,6 +92,25 @@
   <td><%= link_to @related.name, :controller => "cards", :action => "show", :id => @related.id %></td>
 </tr>
 <% end %>
+<% if @related2 %>
+<tr>
+  <td align="right"><b>Related Card:</b></td>
+  <td><%= link_to @related2.name, :controller => "cards", :action => "show", :id => @related2.id %></td>
+</tr>
+<% end %>
+<% if @related3 %>
+<tr>
+  <td align="right"><b>Related Card:</b></td>
+  <td><%= link_to @related3.name, :controller => "cards", :action => "show", :id => @related3.id %></td>
+</tr>
+<% end %>
+<% if @related4 %>
+<tr>
+  <td align="right"><b>Related Card:</b></td>
+  <td><%= link_to @related4.name, :controller => "cards", :action => "show", :id => @related4.id %></td>
+</tr>
+<% end %>
+
 </table>
 
 <p>

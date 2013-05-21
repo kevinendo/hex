@@ -31,7 +31,7 @@ class Card < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name LIKE ? OR traits LIKE ?', "%#{search}%", "%#{search}%")
+      where('name LIKE ? OR traits LIKE ? OR game_text LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       scoped
     end
@@ -40,5 +40,5 @@ class Card < ActiveRecord::Base
   
   has_many :item
   belongs_to :release
-  attr_accessible :related_card_id, :traits, :attack, :color, :cost, :defense, :faction, :game_text, :lore_text, :name, :number, :pve, :rarity, :restriction, :release_id, :threshold, :card_type, :image_main
+  attr_accessible :related_card_id, :related_card2_id, :related_card3_id, :related_card4_id, :traits, :attack, :color, :cost, :defense, :faction, :game_text, :lore_text, :name, :number, :pve, :rarity, :restriction, :release_id, :threshold, :card_type, :image_main, :image_back, :image_alt_1
 end

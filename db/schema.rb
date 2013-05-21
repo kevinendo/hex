@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520035313) do
+ActiveRecord::Schema.define(:version => 20130520234618) do
 
   create_table "cards", :force => true do |t|
     t.string   "name"
-    t.integer  "cost"
+    t.string   "cost"
     t.integer  "threshold"
     t.string   "color"
     t.string   "card_type"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20130520035313) do
     t.text     "lore_text"
     t.integer  "attack"
     t.integer  "defense"
-    t.integer  "release_id",      :default => 0
+    t.integer  "release_id",       :default => 0
     t.integer  "rarity"
     t.integer  "number"
     t.boolean  "pve"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20130520035313) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "related_card_id"
+    t.integer  "related_card2_id"
+    t.integer  "related_card3_id"
+    t.integer  "related_card4_id"
   end
 
   create_table "champions", :force => true do |t|

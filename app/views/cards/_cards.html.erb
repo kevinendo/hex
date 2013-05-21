@@ -1,6 +1,8 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
 
+<%= will_paginate @cards %>
+
 <table width="980" class="pretty">
   <tr>
     <th><%= sortable "name" %></th>
@@ -13,6 +15,7 @@
     <th><%= sortable "attack", "ATK" %></th>
     <th><%= sortable "defense", "DEF" %></th>
     <th><%= sortable "rarity" %></th>
+    <th><%= sortable "pve", "PvE" %></th>	
   </tr>
 
   
@@ -28,6 +31,7 @@
     <td><%= card.attack %></td>
     <td><%= card.defense %></td>
     <td><%= card.rarity %></td>
+    <td><%= card.pve %></td>	
   </tr>
 <% end %>
 </table>

@@ -30,6 +30,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
 
+    if @item.set_card_id
+      @setcard = Card.find(@item.set_card_id)  
+    else
+      @setcard = nil
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @item }
